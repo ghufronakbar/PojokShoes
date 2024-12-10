@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ActivityLogin">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="PojokShoesApk"
+        android:textSize="40sp"
+        android:textColor="@color/red"
+        android:layout_marginTop="80dp"
+        android:gravity="center"
+        android:fontFamily="@font/cbregular"/>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardViewLogin"
+        android:layout_width="300dp"
+        android:layout_height="420dp"
+        android:layout_centerInParent="true"
+        android:layout_margin="16dp"
+        android:backgroundTint="@android:color/white"
+        android:elevation="10dp"
+        app:cardCornerRadius="15dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp">
+
+            <ImageView
+                android:id="@+id/logoLogin"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/logopojok"
+                android:scaleType="centerCrop" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/textnotelp"
+                android:layout_below="@id/logoLogin"
+                android:layout_marginTop="30dp"
+                android:text="Nama"
+                android:textColor="#000000"
+                android:textSize="15sp" />
+
+            <EditText
+                android:id="@+id/etNamaLogin"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_below="@id/textnotelp"
+                android:layout_marginTop="1dp"
+                android:hint="Masukan Nama"
+                android:textColor="#000000"
+                android:textSize="15sp"
+                android:textColorHint="#999999"
+                android:background="@drawable/ed_rounded"
+                android:padding="10dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/textpasslogin"
+                android:layout_below="@id/etNamaLogin"
+                android:layout_marginTop="7dp"
+                android:text="Password"
+                android:textColor="#000000"
+                android:textSize="15sp" />
+
+            <EditText
+                android:id="@+id/etPasswordLogin"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_below="@id/textpasslogin"
+                android:layout_marginTop="1dp"
+                android:hint="Masukan Password"
+                android:textSize="15sp"
+                android:textColor="#000000"
+                android:textColorHint="#999999"
+                android:background="@drawable/ed_rounded"
+                android:padding="10dp"
+                android:inputType="textPassword" />
+
+            <Button
+                android:id="@+id/btnLogin"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_below="@id/etPasswordLogin"
+                android:layout_marginTop="30dp"
+                android:text="Login"
+                android:background="@drawable/bt_rounded"
+                android:backgroundTint="@color/red"
+                android:textAllCaps="false"
+                android:textSize="15sp"
+                android:textColor="#FFFFFF" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_marginTop="10dp"
+                android:id="@+id/belum_daftar"
+                android:layout_below="@+id/btnLogin">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Belum Punya Akun ?"
+                    android:textColor="@color/black"
+                    android:layout_marginStart="5dp"
+                    android:textSize="13sp"/>
+                <TextView
+                    android:id="@+id/daftar_register"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=" Daftar!"
+                    android:textColor="@color/red"
+                    android:textSize="13sp"/>
+            </LinearLayout>
+
+        </RelativeLayout>
+
+
+
+    </androidx.cardview.widget.CardView>
+
+
+</RelativeLayout>

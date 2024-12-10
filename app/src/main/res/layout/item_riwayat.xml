@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="5dp"
+    android:layout_marginEnd="10dp"
+    android:layout_marginStart="10dp"
+    android:layout_marginBottom="5dp"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/content_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:orientation="vertical">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardBackgroundColor="@color/white"
+            app:cardCornerRadius="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_margin="10dp"
+            app:cardElevation="2dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:orientation="horizontal"
+                    android:background="@color/red">
+
+                    <TextView
+                        android:id="@+id/tanggalriwayat"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="10dp"
+                        android:text="2024-10-24"
+                        android:textColor="@color/white"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:layout_weight="1" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="10dp"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:id="@+id/img"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:layout_marginTop="12dp"
+                            android:src="@drawable/file" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:layout_marginLeft="10dp"
+                                android:gravity="center_vertical">
+
+                                <TextView
+                                    android:id="@+id/riwayat_nama_layanan_1"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:text="Deep Clean Sintetis"
+                                    android:textColor="#999999"
+                                    android:textStyle="bold"
+                                    android:textSize="15sp"
+                                    android:layout_weight="1" />
+
+                                <TextView
+                                    android:id="@+id/riwayat_jumlah_sepatu"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="x9"
+                                    android:textColor="#000000"
+                                    android:textSize="15sp"
+                                    android:textStyle="bold"
+                                    android:layout_marginEnd="10dp" />
+
+                                <TextView
+                                    android:id="@+id/riwayat_status_1"
+                                    android:layout_width="80dp"
+                                    android:layout_height="wrap_content"
+                                    android:text="Dipesan"
+                                    android:textColor="#000000"
+                                    android:textSize="15sp"
+                                    android:textStyle="bold"
+                                    android:gravity="start" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginTop="3dp"
+                                android:gravity="center_vertical">
+
+                                <TextView
+                                    android:id="@+id/riwayat_nama_layanan_2"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:text="Deep Clean Kanvas"
+                                    android:textColor="#999999"
+                                    android:textStyle="bold"
+                                    android:textSize="15sp"
+                                    android:layout_weight="1" />
+
+                                <TextView
+                                    android:id="@+id/riwayat_jumlah_sepatu2"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="x2"
+                                    android:textColor="#000000"
+                                    android:textSize="15sp"
+                                    android:textStyle="bold"
+                                    android:layout_marginEnd="10dp" />
+
+                                <TextView
+                                    android:id="@+id/riwayat_status_2"
+                                    android:layout_width="80dp"
+                                    android:layout_height="wrap_content"
+                                    android:text="Dijemput"
+                                    android:textColor="#000000"
+                                    android:textSize="15sp"
+                                    android:gravity="start"
+                                    android:textStyle="bold" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginTop="3dp"
+                                android:gravity="center_vertical">
+
+                                <TextView
+                                    android:id="@+id/riwayat_nama_layanan_3"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:text="Recolor Sintetis"
+                                    android:textColor="#999999"
+                                    android:textStyle="bold"
+                                    android:textSize="15sp"
+                                    android:layout_weight="1" />
+
+                                <TextView
+                                    android:id="@+id/riwayat_jumlah_sepatu3"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="x2"
+                                    android:textColor="#000000"
+                                    android:textSize="15sp"
+                                    android:textStyle="bold"
+                                    android:layout_marginEnd="10dp" />
+
+                                <TextView
+                                    android:id="@+id/riwayat_status_3"
+                                    android:layout_width="80dp"
+                                    android:layout_height="wrap_content"
+                                    android:text="Selesai"
+                                    android:textColor="#000000"
+                                    android:textSize="15sp"
+                                    android:gravity="start"
+                                    android:textStyle="bold" />
+                            </LinearLayout>
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:background="@color/red"
+                                android:layout_marginTop="3dp"/>
+
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginTop="5dp">
+
+                                <TextView
+                                    android:id="@+id/label_total"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Total"
+                                    android:textColor="#000000"
+                                    android:textStyle="bold"
+                                    android:textSize="15sp" />
+
+                                <TextView
+                                    android:id="@+id/riwayat_total_pembayaran"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Rp. 500.000"
+                                    android:textColor="#000000"
+                                    android:textSize="15sp"
+                                    android:textStyle="bold"
+                                    android:layout_marginStart="153dp" />
+                            </LinearLayout>
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+    </LinearLayout>
+</LinearLayout>

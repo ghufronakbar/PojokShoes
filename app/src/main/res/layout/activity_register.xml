@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ActivityRegister">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="PojokShoesApk"
+        android:textSize="40sp"
+        android:textColor="@color/red"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:fontFamily="@font/cbregular"/>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardViewRegister"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_margin="16dp"
+        android:backgroundTint="@android:color/white"
+        android:elevation="10dp"
+        app:cardCornerRadius="15dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="12dp">
+
+            <ImageView
+                android:id="@+id/logoRegister"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/logopojok"
+                android:scaleType="centerCrop" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/textnamaregis"
+                android:layout_below="@id/logoRegister"
+                android:layout_marginTop="10dp"
+                android:text="Nama Lengkap"
+                android:textColor="#000000"
+                android:textSize="15sp" />
+
+
+                <EditText
+                    android:id="@+id/etNamaRegister"
+                    android:layout_width="match_parent"
+                    android:layout_below="@id/textnamaregis"
+                    android:layout_height="45dp"
+                    android:layout_weight="1"
+                    android:hint="Masukan Nama Lengkap"
+                    android:textSize="15sp"
+                    android:textColor="#000000"
+                    android:textColorHint="#999999"
+                    android:background="@drawable/ed_rounded"
+                    android:padding="10dp" />
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/etNamaRegister"
+                android:layout_marginTop="7dp"
+                android:id="@+id/nomorregis"
+                android:text="Nomor Handphone"
+                android:textColor="#000000"
+                android:textSize="15sp" />
+
+            <EditText
+                android:id="@+id/etNoRegister"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_below="@id/nomorregis"
+                android:layout_marginTop="1dp"
+                android:hint="Masukkan Nomor Handphone"
+                android:textSize="15sp"
+                android:textColor="#000000"
+                android:textColorHint="#999999"
+                android:background="@drawable/ed_rounded"
+                android:padding="10dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/etNoRegister"
+                android:id="@+id/emailregis"
+                android:layout_marginTop="7dp"
+                android:text="Email"
+                android:textColor="#000000"
+                android:textSize="15sp" />
+
+            <EditText
+                android:id="@+id/etEmailRegister"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_below="@id/emailregis"
+                android:layout_marginTop="1dp"
+                android:hint="Masukkan Email"
+                android:textSize="15sp"
+                android:textColor="#000000"
+                android:textColorHint="#999999"
+                android:background="@drawable/ed_rounded"
+                android:padding="10dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/etEmailRegister"
+                android:id="@+id/alamatregis"
+                android:layout_marginTop="7dp"
+                android:text="Alamat"
+                android:textColor="#000000"
+                android:textSize="15sp" />
+
+            <EditText
+                android:id="@+id/etAlamatRegister"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_below="@+id/alamatregis"
+                android:layout_marginTop="1dp"
+                android:hint="Masukkan Alamat"
+                android:textSize="15sp"
+                android:textColor="#000000"
+                android:textColorHint="#999999"
+                android:background="@drawable/ed_rounded"
+                android:padding="10dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/etAlamatRegister"
+                android:layout_marginTop="7dp"
+                android:id="@+id/passwordregis"
+                android:text="Password"
+                android:textColor="#000000"
+                android:textSize="15sp" />
+
+            <EditText
+                android:id="@+id/etPasswordRegister"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_below="@id/passwordregis"
+                android:layout_marginTop="1dp"
+                android:hint="Masukkan Password"
+                android:textSize="15sp"
+                android:textColor="#000000"
+                android:textColorHint="#999999"
+                android:background="@drawable/ed_rounded"
+                android:padding="10dp"
+                android:inputType="textPassword" />
+
+            <Button
+                android:id="@+id/btnRegister"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_below="@id/etPasswordRegister"
+                android:layout_marginTop="20dp"
+                android:text="Register"
+                android:textAllCaps="false"
+                android:background="@drawable/bt_rounded"
+                android:backgroundTint="@color/red"
+                android:textSize="15sp"
+                android:textColor="#FFFFFF" />
+
+            <LinearLayout
+                android:id="@+id/sudahpunyakaun"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/btnRegister"
+                android:layout_marginTop="10dp"
+                android:gravity="center">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Sudah Punya Akun ?"
+                    android:textColor="@color/black"
+                    android:textSize="13sp"
+                    android:layout_marginStart="5dp" />
+
+                <TextView
+                    android:id="@+id/ke_login"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=" Login!"
+                    android:textColor="@color/red"
+                    android:textSize="13sp"/>
+            </LinearLayout>
+
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</RelativeLayout>

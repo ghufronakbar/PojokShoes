@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".FragmentSettings">
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp"
+            android:layout_marginTop="20dp">
+
+            <TextView
+                android:id="@+id/settingNP"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:text="Khalid bin Walid"
+                android:textSize="20sp"
+                android:gravity="center"
+                android:layout_marginTop="70dp"/>
+
+            <TextView
+                android:id="@+id/settingNT"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_below="@+id/settingNP"
+                android:text="08311726521"
+                android:textSize="20sp"
+                android:gravity="center"
+                android:layout_marginTop="2dp"/>
+
+            <TextView
+                android:id="@+id/settingALMT"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_below="@+id/settingNT"
+                android:text="Plumbon Cilik, Mororejo, Tempel, Sleman"
+                android:textSize="20sp"
+                android:gravity="center"
+                android:layout_marginTop="2dp"/>
+
+
+            <Button
+                android:id="@+id/btnEdProf"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_below="@id/settingALMT"
+                android:layout_marginTop="70dp"
+                android:text="Edit Profile"
+                android:background="@drawable/ed_rounded"
+                android:textSize="18sp"
+                android:textAllCaps="false"
+                android:textColor="@color/black" />
+
+            <Button
+                android:id="@+id/btnttgkami"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_below="@id/btnEdProf"
+                android:layout_marginTop="30dp"
+                android:text="Tentang Kami"
+                android:background="@drawable/ed_rounded"
+                android:textSize="18sp"
+                android:textAllCaps="false"
+                android:textColor="@color/black" />
+
+            <Button
+                android:id="@+id/btnKeluar"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_below="@id/btnttgkami"
+                android:layout_marginTop="190dp"
+                android:text="Keluar"
+                android:background="@drawable/bt_rounded"
+                android:backgroundTint="@color/red"
+                android:textSize="18sp"
+                android:textAllCaps="false"
+                android:textColor="#FFFFFF" />
+
+        </RelativeLayout>
+
+
+</RelativeLayout>

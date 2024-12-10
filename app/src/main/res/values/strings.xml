@@ -1,0 +1,33 @@
+<resources>
+    <string name="app_name">PojokShoesApk</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="about_desc">\t\t
+
+Pojok Shoescare adalah salah satu badan usaha yang bergerak di bidang penyediaan jasa cuci dan service sepatu, berlokasi strategis di Jl. DR. Sardjito, Terban, Kec. Gondokusuman, Kota Yogyakarta. Dengan jargon “budayakan malas mencuci, karena itu tugas kami,” kami berkomitmen untuk memberikan layanan terbaik agar sepatu Anda selalu terlihat prima tanpa perlu repot.
+Kami menawarkan berbagai treatment untuk memenuhi kebutuhan sepatu Anda:
+\n\n\t\t1. *Repaint-Recolor*: Treatment ini bertujuan untuk mengembalikan warna sepatu yang telah kusam, sehingga sepatu Anda terlihat seperti baru lagi. Proses repaint kami menggunakan bahan berkualitas tinggi untuk hasil yang memuaskan. Ingin mengubah tampilan sepatu sesuai keinginan? Treatment recolor kami siap membantu Anda merubah warna sepatu menjadi pilihan favorit Anda, memberikan kesan baru yang segar.
+2. *Reglue*: Jika sol sepatu Anda mulai terlepas, kami menawarkan layanan pengeleman ulang untuk memastikan sepatu Anda tetap nyaman dan aman dipakai.
+3. *Deep Cleaning*: Untuk Anda yang menginginkan kebersihan menyeluruh, deep cleaning adalah solusi ideal. Proses ini memakan waktu 2-3 hari, tergantung pada tingkat kesulitan dan kekotoran sepatu. Semua bagian, dari luar hingga dalam termasuk tali sepatu, akan dicuci secara menyeluruh.
+4. *Fast Clean*: Dalam waktu setengah hari, kami menawarkan layanan cepat untuk mencuci bagian luar sepatu Anda. Cocok untuk Anda yang membutuhkan sepatu bersih dalam waktu singkat tanpa mengorbankan kualitas.
+\n\n\t\tDi Pojok Shoescare, kepuasan pelanggan adalah prioritas kami. Kami percaya bahwa sepatu yang bersih dan terawat akan memberikan kenyamanan dan kepercayaan diri lebih dalam setiap langkah Anda. Bergabunglah dengan kami dan biarkan kami merawat sepatu kesayangan Anda!
+
+</string>
+    <string name="des_deep_clean">
+    Deep Clean merupakan proses pembersihan mendalam untuk menghilangkan kotoran, noda, dan bau dari sepatu secara menyeluruh.</string>
+
+    <string name="des_sue">
+        1. Sintetis: sepatu yang terbuat dari material buatan manusia, seperti polyurethane (PU), PVC, atau microfiber
+        \n2. Kanvas: sepatu yang terbuat dari bahan kanvas, yaitu bahan kain yang memiliki serat beras atau kecil seperti kain kanvas WP, Kanvas SR-10 atau Kanvas Terpal.
+        \n3. Suede: sepatu yang terbuat dari jenis kulit dengan tekstur lembut dan berbulu halus di permukaannya.
+</string>
+
+    <string name="des_fast_clean">
+    Fast Clean adalah proses pembersihan cepat untuk menghilangkan debu, kotoran ringan, dan noda permukaan dari sepatu.</string>
+
+    <string name="des_recolor">
+    Recolor adalah proses pewarnaan ulang untuk mengembalikan atau mengubah warna sepatu yang memudar agar terlihat baru kembali.</string>
+
+    <string name="des_reglue">
+    Recolor adalah proses perbaikan untuk merekatkan kembali bagian-bagian sepatu yang terlepas atau longgar untuk memastikan sepatu tetap kokoh dan nyaman dipakai.</string>
+</resources>
