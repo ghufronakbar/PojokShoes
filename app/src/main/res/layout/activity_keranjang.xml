@@ -42,6 +42,31 @@
         android:scrollbars="vertical"
         tools:listitem="@layout/item_keranjang" />
 
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp">
+        <TextView
+            android:id="@+id/text_total_ongkir"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Biaya Penjemputan:"
+            android:textSize="16sp"
+            android:textColor="@color/black"
+            android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/text_ongkir"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Rp 0"
+            android:textSize="16sp"
+            android:textColor="@color/black" />
+    </LinearLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -55,7 +80,7 @@
             android:text="Total Pembayaran:"
             android:textSize="16sp"
             android:textColor="@color/black"
-            android:layout_weight="1" /> <!-- Membuat text "Total Pembayaran" mengisi ruang kiri -->
+            android:layout_weight="1" />
 
         <TextView
             android:id="@+id/text_harga"
@@ -65,6 +90,7 @@
             android:textSize="16sp"
             android:textColor="@color/black" />
     </LinearLayout>
+
 
     <Button
         android:id="@+id/btn_checkout"

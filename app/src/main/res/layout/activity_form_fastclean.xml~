@@ -6,37 +6,37 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ActivityFormReglue">
+    tools:context=".ActivityFormFastClean">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/headbackformreglue"
+        android:id="@+id/headbackformfastclean"
         android:orientation="horizontal"
         android:gravity="center_vertical"
         android:background="@color/red">
 
         <ImageView
-            android:id="@+id/icbackformreglue"
+            android:id="@+id/icbackformfastclean"
             android:layout_width="20dp"
             android:layout_height="20dp"
             android:src="@drawable/ic_back"
             android:layout_margin="15dp"/>
 
         <TextView
-            android:id="@+id/text_reglue"
+            android:id="@+id/text_fastclean"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Form Reglue"
+            android:text="Form Fast Clean"
             android:textSize="17sp"
             android:textColor="@color/black"/>
     </LinearLayout>
 
     <TextView
-        android:id="@+id/titlereglue"
+        android:id="@+id/titlefastclean"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Reglue"
+        android:text="Fast Clean"
         android:textSize="20sp"
         android:textStyle="bold"
         android:textColor="#000000"
@@ -44,21 +44,20 @@
         android:layout_marginTop="55dp"/>
 
     <TextView
-        android:id="@+id/deskripsireglue"
+        android:id="@+id/deskripsifastclean"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Pengeleman Pada Sole Rusak"
+        android:text="Cuci Bagian Luar Sepatu 1/2 Hari"
         android:textSize="17sp"
         android:textColor="#666666"
         android:layout_marginLeft="16dp"
-        android:layout_below="@id/titlereglue"/>
-
+        android:layout_below="@id/titlefastclean"/>
 
     <ListView
         android:id="@+id/list_view_pemesanan"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/deskripsireglue"
+        android:layout_height="250dp"
+        android:layout_below="@+id/deskripsifastclean"
         tools:listitem="@layout/list_form_pesan"/>
 
     <androidx.cardview.widget.CardView
@@ -83,7 +82,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/des_reglue"
+                android:text="@string/des_fast_clean"
                 android:layout_marginTop="5dp"
                 android:textColor="@color/black"
                 android:textSize="15sp"/>

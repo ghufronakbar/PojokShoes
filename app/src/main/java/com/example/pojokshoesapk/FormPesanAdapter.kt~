@@ -56,14 +56,6 @@ class FormPesanAdapter(
         holder.priceTextView.text = "Rp ${layanan.layanan_harga}"
         holder.quantityTextView.text = layanan.quantity.toString()
 
-        // Memuat gambar menggunakan Glide dengan handling status loading, placeholder, dan error
-        Glide.with(context)
-            .load(layanan.layanan_picture) // URL gambar
-            .apply(RequestOptions()
-                .placeholder(R.drawable.recolor)  // Gambar placeholder saat loading
-                .error(R.drawable.recolor)) // Gambar error jika gagal load
-            .into(holder.imageView)
-
         // Update status dan behavior berdasarkan status
         if (layanan.status == 0) {
             holder.statusTextView.visibility = View.VISIBLE

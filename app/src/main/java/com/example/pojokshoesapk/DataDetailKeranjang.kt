@@ -3,7 +3,9 @@ package com.example.pojokshoesapk
 data class ItemKeranjangs(
     val namaLayanan: String,
     val jumlahSepatu: Int,
-    val harga: Int
+    val harga: Int,
+    var layanan_picture: String?= null,
+    val layanan_status: Int
 )
 
 data class KeranjangResponses(
@@ -20,7 +22,9 @@ data class DataDetailKeranjang(
     val detail_id: Int,
     val layanan_nama: String,
     val jumlah_sepatu: Int,
-    val detail_harga: Int
+    val detail_harga: Int,
+    var layanan_picture: String?= null,
+    val layanan_status: Int
 )
 
 data class LayananItem(

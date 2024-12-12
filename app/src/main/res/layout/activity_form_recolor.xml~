@@ -6,37 +6,36 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ActivityFormReglue">
+    tools:context=".ActivityFormRecolor">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/headbackformreglue"
+        android:id="@+id/headbackformrecolor"
         android:orientation="horizontal"
         android:gravity="center_vertical"
         android:background="@color/red">
 
         <ImageView
-            android:id="@+id/icbackformreglue"
+            android:id="@+id/icbackformrecolor"
             android:layout_width="20dp"
             android:layout_height="20dp"
             android:src="@drawable/ic_back"
             android:layout_margin="15dp"/>
 
         <TextView
-            android:id="@+id/text_reglue"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Form Reglue"
+            android:text="Form Recolor"
             android:textSize="17sp"
             android:textColor="@color/black"/>
     </LinearLayout>
 
     <TextView
-        android:id="@+id/titlereglue"
+        android:id="@+id/titlerecolor"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Reglue"
+        android:text="Recolor"
         android:textSize="20sp"
         android:textStyle="bold"
         android:textColor="#000000"
@@ -44,21 +43,20 @@
         android:layout_marginTop="55dp"/>
 
     <TextView
-        android:id="@+id/deskripsireglue"
+        android:id="@+id/deskripsirecolor"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Pengeleman Pada Sole Rusak"
+        android:text="Pewarnaan Ulang Pada Sepatu"
         android:textSize="17sp"
         android:textColor="#666666"
         android:layout_marginLeft="16dp"
-        android:layout_below="@id/titlereglue"/>
-
+        android:layout_below="@id/titlerecolor"/>
 
     <ListView
         android:id="@+id/list_view_pemesanan"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/deskripsireglue"
+        android:layout_height="250dp"
+        android:layout_below="@+id/deskripsirecolor"
         tools:listitem="@layout/list_form_pesan"/>
 
     <androidx.cardview.widget.CardView
@@ -83,7 +81,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/des_reglue"
+                android:text="@string/des_recolor"
                 android:layout_marginTop="5dp"
                 android:textColor="@color/black"
                 android:textSize="15sp"/>

@@ -3,6 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
 
     <application
@@ -35,7 +37,7 @@
             android:name=".ActivityKeranjang"
             android:exported="false" />
         <activity
-            android:name=".activityFormPemesanan"
+            android:name=".ActivityFormPemesanan"
             android:exported="false" />
         <activity
             android:name=".ActivitySplashScreen"
@@ -50,10 +52,10 @@
             android:name=".ActivityTesrun"
             android:exported="false" />
         <activity
-            android:name=".activityEditProfile"
+            android:name=".ActivityEditProfile"
             android:exported="false" />
         <activity
-            android:name=".activityTentangKami"
+            android:name=".ActivityTentangKami"
             android:exported="false" />
         <activity
             android:name=".ActivityRegister"

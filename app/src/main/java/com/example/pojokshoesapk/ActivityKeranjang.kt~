@@ -428,10 +428,11 @@ class ActivityKeranjang : AppCompatActivity() {
     }
 
     private fun performCheckout(keranjangId: Int) {
-        val checkoutRequest : Map<String, Double> = mapOf("keranjang_id" to keranjangId.toDouble(), "latitude" to latitude, "longitude" to longitude)
+        val checkoutRequest = mapOf("keranjang_id" to keranjangId)
 
+        val requestBody = JSONObject(checkoutRequest)
 
-        RetrofitClient.apiService.createCheckout(checkoutRequest)
+        RetrofitClient.apiService.createCheckout(checkoutRequest, latitude, longitude)
             .enqueue(object : Callback<CheckoutResponse> {
                 override fun onResponse(call: Call<CheckoutResponse>, response: Response<CheckoutResponse>) {
                     if (response.isSuccessful) {

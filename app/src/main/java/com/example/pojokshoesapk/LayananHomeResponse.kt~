@@ -1,0 +1,14 @@
+package com.example.pojokshoesapk
+
+data class LayananHomeResponse(
+    val fast_clean: LayananDetail,
+    val deep_clean: LayananDetail,
+    val reglue: LayananDetail,
+    val recolor: LayananDetail
+)
+
+data class LayananDetail(
+    val name: String,
+    val picture: String? = null,
+    val layanan_deskripsi: String
+)

@@ -152,7 +152,6 @@ class ActivityFormReglue : AppCompatActivity(), FormPesanAdapter.OnQuantityChang
                         val activeKeranjang = keranjangList.find { it.keranjang_status == "1" }
                         Log.d("Keranjang", "onResponse: ${keranjangList.size} keranjang ditemukan")
                         Log.d("detailKeranjang", "onResponse: $activeKeranjang")
-                        Log.d("pelangganId", "onResponse: $pelangganId")
 
                         if (activeKeranjang != null) {
                             onResult(activeKeranjang.keranjang_id)

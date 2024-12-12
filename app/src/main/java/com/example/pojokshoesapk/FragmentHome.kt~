@@ -68,13 +68,6 @@ class FragmentHome : Fragment() {
             startActivity(intent)
         }
 
-        // Keranjang
-        val imgKeranjang: View = view.findViewById(R.id.homekeranjang)
-        imgKeranjang.setOnClickListener {
-            val intent = Intent(activity, ActivityKeranjang::class.java)
-            startActivity(intent)
-        }
-
         return view
     }
 

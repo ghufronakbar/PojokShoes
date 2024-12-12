@@ -74,13 +74,10 @@ class ActivityLogin : AppCompatActivity() {
                         sessionManager.saveUserId(pelangganId)
                         sessionManager.saveKeranjangOwnerId(pelangganId)
 
-                        // Log untuk debugging
-                        Log.d("ActivityLogin", "Login sukses: ${loginResponse.message}")
-                        Log.d("USER_ID", "pelanggan_id: $pelangganId")
-
                         Toast.makeText(
                             this@ActivityLogin,
-                            "Login sukses: ${loginResponse.message}",
+//                            "Berhasil login",
+                            "Berhasil login",
                             Toast.LENGTH_SHORT
                         ).show()
 
@@ -100,7 +97,7 @@ class ActivityLogin : AppCompatActivity() {
                         val errorResponse = gson.fromJson(errorBody, ErrorResponse::class.java)
                         Toast.makeText(
                             this@ActivityLogin,
-                            "Login gagal: ${errorResponse.details}",
+                            "Periksa kembali username dan password",
                             Toast.LENGTH_SHORT
                         ).show()
                     } catch (e: Exception) {

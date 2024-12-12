@@ -14,30 +14,30 @@
             android:layout_marginTop="20dp">
 
             <TextView
-                android:id="@+id/settingNP"
+                android:id="@+id/displayName"
                 android:layout_width="match_parent"
                 android:layout_height="30dp"
-                android:text="Khalid bin Walid"
+                android:text="Loading..."
                 android:textSize="20sp"
                 android:gravity="center"
                 android:layout_marginTop="70dp"/>
 
             <TextView
-                android:id="@+id/settingNT"
+                android:id="@+id/displayPhone"
                 android:layout_width="match_parent"
                 android:layout_height="30dp"
-                android:layout_below="@+id/settingNP"
-                android:text="08311726521"
+                android:layout_below="@+id/displayName"
+                android:text="..."
                 android:textSize="20sp"
                 android:gravity="center"
                 android:layout_marginTop="2dp"/>
 
             <TextView
-                android:id="@+id/settingALMT"
+                android:id="@+id/displayAddress"
                 android:layout_width="match_parent"
                 android:layout_height="30dp"
-                android:layout_below="@+id/settingNT"
-                android:text="Plumbon Cilik, Mororejo, Tempel, Sleman"
+                android:layout_below="@+id/displayPhone"
+                android:text=".."
                 android:textSize="20sp"
                 android:gravity="center"
                 android:layout_marginTop="2dp"/>
@@ -47,7 +47,7 @@
                 android:id="@+id/btnEdProf"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:layout_below="@id/settingALMT"
+                android:layout_below="@id/displayAddress"
                 android:layout_marginTop="70dp"
                 android:text="Edit Profile"
                 android:background="@drawable/ed_rounded"

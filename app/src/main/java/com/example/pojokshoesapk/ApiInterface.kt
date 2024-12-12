@@ -6,12 +6,17 @@ import retrofit2.http.GET
 import retrofit2.http.POST
 import retrofit2.http.Body
 import retrofit2.http.DELETE
+import retrofit2.http.Header
 import retrofit2.http.Path
+import retrofit2.http.Query
 
 interface ApiInterface {
 
-    @GET("layanan/layanan")
+    @GET("layanan/all")
     fun getLayananList(): Call<List<DataListLayanan>>
+
+    @GET("layanan/check")
+    fun getLayananHome(): Call<LayananHomeResponse>
 
     @GET("keranjang/keranjang/{pelanggan_id}")
     fun getKeranjangByPelanggan(@Path("pelanggan_id") pelangganId: Int?): Call<List<KeranjangItem>>
@@ -35,6 +40,15 @@ interface ApiInterface {
     @POST("login")
     fun login(@Body loginData: LoginData): Call<LoginResponse>
 
+    @GET("profile")
+    fun getProfile(@Header("Authorization") token: String): Call<AccountResponse>
+
+    @GET("helper/ongkir")
+    fun getShippingCost(
+        @Query("latitude") latitude: Double,
+        @Query("longitude") longitude: Double
+    ): Call<ShippingRespnose>
+
     @POST("register")
     fun registerUser(@Body registerData: RegisterData): Call<AuthResponse>
 
@@ -54,7 +68,7 @@ interface ApiInterface {
 //    suspend fun createCheckout(@Body keranjangId: Int): Response<CheckoutData>
 
     @POST("checkout/checkout")
-    fun createCheckout(@Body checkoutRequest: Map<String, Int>): Call<CheckoutResponse>
-
-
+    fun createCheckout(
+        @Body checkoutRequest: Map<String, Double>
+    ): Call<CheckoutResponse>
 }

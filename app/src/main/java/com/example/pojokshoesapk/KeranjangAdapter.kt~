@@ -47,7 +47,6 @@ class KeranjangAdapter(
 
         if(currentItem.layanan_status == 0){
             holder.statusText.text = "Layanan sedang tidak tersedia"
-            holder.statusText.visibility = View.VISIBLE
         }
 
         Glide.with(holder.itemView.context)

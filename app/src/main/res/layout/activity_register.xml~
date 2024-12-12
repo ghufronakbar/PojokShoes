@@ -87,8 +87,7 @@
                 android:textColor="#000000"
                 android:textColorHint="#999999"
                 android:background="@drawable/ed_rounded"
-                android:padding="10dp"
-                android:inputType="phone" />
+                android:padding="10dp" />
 
             <TextView
                 android:layout_width="match_parent"

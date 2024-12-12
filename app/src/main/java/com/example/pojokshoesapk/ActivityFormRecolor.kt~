@@ -5,7 +5,7 @@ import SessionManager
 import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.example.pojokshoesapk.databinding.ActivityFormReglueBinding
+import com.example.pojokshoesapk.databinding.ActivityFormRecolorBinding
 import com.google.gson.Gson
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -17,14 +17,14 @@ import retrofit2.Response
 import java.text.SimpleDateFormat
 import java.util.*
 
-class ActivityFormReglue : AppCompatActivity(), FormPesanAdapter.OnQuantityChangeListener {
-    private lateinit var binding: ActivityFormReglueBinding
-    private val TAG = "ActivityFormRglue"
+class ActivityFormRecolor : AppCompatActivity(), FormPesanAdapter.OnQuantityChangeListener {
+    private lateinit var binding: ActivityFormRecolorBinding
+    private val TAG = "ActivityFormRecolor"
     private lateinit var sessionManager: SessionManager
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityFormReglueBinding.inflate(layoutInflater)
+        binding = ActivityFormRecolorBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         sessionManager = SessionManager(this)
@@ -58,12 +58,12 @@ class ActivityFormReglue : AppCompatActivity(), FormPesanAdapter.OnQuantityChang
             override fun onResponse(call: Call<List<DataListLayanan>>, response: Response<List<DataListLayanan>>) {
                 if (response.isSuccessful) {
                     val layananList = response.body() ?: listOf()
-                    val reglueList = layananList.filter { it.layanan_nama.contains("Reglue", ignoreCase = true) }
-                    reglueList.forEach { it.quantity = 0 }
-                    if (reglueList.isNotEmpty()) {
-                        setupListView(reglueList)
+                    val recolorList = layananList.filter { it.layanan_nama.contains("Recolor", ignoreCase = true) }
+                    recolorList.forEach { it.quantity = 0 }
+                    if (recolorList.isNotEmpty()) {
+                        setupListView(recolorList)
                     } else {
-                        showError("Tidak ada layanan Reglue tersedia")
+                        showError("Tidak ada layanan Recolor tersedia")
                     }
                 } else {
                     showError("Gagal memuat data layanan")
@@ -150,10 +150,6 @@ class ActivityFormReglue : AppCompatActivity(), FormPesanAdapter.OnQuantityChang
                     if (response.isSuccessful) {
                         val keranjangList = response.body() ?: emptyList()
                         val activeKeranjang = keranjangList.find { it.keranjang_status == "1" }
-                        Log.d("Keranjang", "onResponse: ${keranjangList.size} keranjang ditemukan")
-                        Log.d("detailKeranjang", "onResponse: $activeKeranjang")
-                        Log.d("pelangganId", "onResponse: $pelangganId")
-
                         if (activeKeranjang != null) {
                             onResult(activeKeranjang.keranjang_id)
                         } else {
