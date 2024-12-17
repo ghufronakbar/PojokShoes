@@ -37,7 +37,6 @@
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_margin="10dp"
         android:layout_weight="1"
         android:scrollbars="vertical"
         tools:listitem="@layout/item_keranjang" />
@@ -77,7 +76,7 @@
             android:id="@+id/text_total_pembayaran"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Total Pembayaran:"
+            android:text="Total Keranjang:"
             android:textSize="16sp"
             android:textColor="@color/black"
             android:layout_weight="1" />

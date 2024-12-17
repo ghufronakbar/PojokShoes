@@ -68,7 +68,10 @@ interface ApiInterface {
     ): Call<AccountResponse>
 
     @GET("helper/ongkir")
-    fun getShippingCost(@Header("Authorization") token: String): Call<ShippingRespnose>
+    fun getShippingCost(
+        @Query("latitude") latitude: Double,
+        @Query("longitude") longitude: Double
+    ): Call<ShippingRespnose>
 
     @POST("register")
     fun registerUser(@Body registerData: RegisterData): Call<AuthResponse>

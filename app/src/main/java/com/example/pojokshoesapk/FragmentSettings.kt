@@ -9,19 +9,26 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
 import retrofit2.Callback
 import retrofit2.Response
 
 class FragmentSettings : Fragment() {
 
     private lateinit var sessionManager: SessionManager
+    private var token: String? = null
     private lateinit var displayName : TextView
-    private lateinit var displayPhone : TextView
-    private lateinit var displayAddress : TextView
-    private var token: String? = null  // Perubahan: Membuat token nullable
+    private lateinit var displayEmail : TextView
+    private  lateinit var  btnEdProf: LinearLayout
+    private  lateinit var  btnTtgKami: LinearLayout
+    private lateinit var  btnKeluar: LinearLayout
+    private lateinit var displayPicture: ImageView
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -32,19 +39,32 @@ class FragmentSettings : Fragment() {
         sessionManager = SessionManager(requireContext())
 
         displayName = view.findViewById(R.id.displayName)
-        displayPhone = view.findViewById(R.id.displayPhone)
-        displayAddress = view.findViewById(R.id.displayAddress)
+        displayEmail = view.findViewById(R.id.displayEmail)
 
         token = sessionManager.getToken()
 
         displayUserData()
 
 
-        val btnKeluar: Button = view.findViewById(R.id.btnKeluar)
-
+        btnKeluar = view.findViewById(R.id.lnLogout)
         btnKeluar.setOnClickListener {
             logout()
         }
+
+        btnEdProf = view.findViewById(R.id.lnEdit)
+        btnEdProf.setOnClickListener {
+            val intent = Intent(activity, ActivityEditProfile::class.java)
+            startActivity(intent)
+        }
+
+        btnTtgKami = view.findViewById(R.id.lnTentangKami)
+        btnTtgKami.setOnClickListener {
+            val intent = Intent(activity, ActivityTentangKami::class.java)
+            startActivity(intent)
+        }
+
+        displayPicture = view.findViewById(R.id.displayPicture)
+
 
         return view
     }
@@ -68,8 +88,14 @@ class FragmentSettings : Fragment() {
                         val accountResponse = response.body()
                         if (accountResponse != null) {
                             displayName.text = accountResponse.pelanggan_nama
-                            displayPhone.text = accountResponse.pelanggan_nomor
-                            displayAddress.text = accountResponse.pelanggan_alamat
+                            displayEmail.text = accountResponse.pelanggan_email
+                            Glide.with(requireContext())
+                                .load(accountResponse.pelanggan_picture)
+                                .apply(
+                                    RequestOptions()
+                                    .placeholder(R.drawable.profile)
+                                    .error(R.drawable.profile))
+                                .into(displayPicture)
                         }
                     }
                 }

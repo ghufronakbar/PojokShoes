@@ -2,7 +2,6 @@ package com.example.pojokshoesapk
 
 import SessionManager
 import android.content.Intent
-import android.location.Location
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
@@ -13,10 +12,8 @@ import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import kotlinx.coroutines.launch
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -26,15 +23,7 @@ import com.midtrans.sdk.uikit.api.model.CustomColorTheme
 import com.midtrans.sdk.uikit.api.model.TransactionResult
 import com.midtrans.sdk.uikit.external.UiKitApi
 import com.midtrans.sdk.uikit.internal.util.UiKitConstants
-
-import androidx.core.app.ActivityCompat
-import com.google.android.gms.location.FusedLocationProviderClient
-import com.google.android.gms.location.LocationServices
-import com.google.android.gms.tasks.Task
-import android.Manifest
-import android.content.pm.PackageManager
 import androidx.core.content.ContextCompat
-import org.json.JSONObject
 
 
 class ActivityKeranjang : AppCompatActivity() {
@@ -48,14 +37,11 @@ class ActivityKeranjang : AppCompatActivity() {
     private var keranjangList: MutableList<ItemKeranjangs> = mutableListOf()
     private var detailKeranjangList: MutableList<DataDetailKeranjang> = mutableListOf()
     private lateinit var sessionManager: SessionManager
-    private var currentKeranjangId: Int? = null // ID keranjang aktif
-    private lateinit var fusedLocationClient: FusedLocationProviderClient
+    private var currentKeranjangId: Int? = null
+
+    private var token: String? = null
 
     private var isAllKeranjangAvailable:Boolean = keranjangList.all { it.layanan_status == 1 }
-
-
-    private var latitude: Double = 0.0
-    private var longitude: Double = 0.0
 
     companion object {
         private const val TAG = "ActivityKeranjang"
@@ -80,6 +66,7 @@ class ActivityKeranjang : AppCompatActivity() {
 
         setupRecyclerView()
         sessionManager = SessionManager(this)
+        token = sessionManager.getToken()
         val idPelanggans = sessionManager.getUserId()
 
         Log.d(TAG, "User ID: $idPelanggans")
@@ -102,21 +89,6 @@ class ActivityKeranjang : AppCompatActivity() {
             )
         } else {
             showError("Pengguna tidak teridentifikasi")
-        }
-    fusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
-        if (ActivityCompat.checkSelfPermission(
-                this,
-                Manifest.permission.ACCESS_FINE_LOCATION
-            ) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(
-                this,
-                Manifest.permission.ACCESS_COARSE_LOCATION
-            ) != PackageManager.PERMISSION_GRANTED
-        ) {
-            // Jika izin belum diberikan, minta izin kepada pengguna
-            requestLocationPermission()
-        } else {
-            // Dapatkan lokasi terkini
-            getLastKnownLocation()
         }
     }
 
@@ -231,75 +203,36 @@ class ActivityKeranjang : AppCompatActivity() {
             })
     }
 
+    private fun fetchShippingCost() {
+        Log.d("Keranjang", "Fetching Shipping Cost hit")
+        if(token != null){
+            Log.d("Keranjang", "Token: $token")
+            RetrofitClient.apiService.getShippingCost("Bearer $token")
+                .enqueue(object : Callback<ShippingRespnose> {
+                    override fun onResponse(call: Call<ShippingRespnose>, response: Response<ShippingRespnose>) {
+                        if (response.isSuccessful) {
+                            val shippingRespnose = response.body()
+                            Log.d("Keranjang", "Shipping Cost: $shippingRespnose")
+                            shippingRespnose?.let {
+                                val currencyFormatter = NumberFormat.getCurrencyInstance(Locale("id", "ID"))
+                                val shippingCost = it.shipping_cost ?: 0
+                                totalOngkirTextView.text = currencyFormatter.format(shippingCost)
 
-    private fun requestLocationPermission() {
-        // Request izin lokasi menggunakan ActivityResultContracts
-        val requestPermissionLauncher = registerForActivityResult(
-            ActivityResultContracts.RequestPermission()
-        ) { isGranted: Boolean ->
-            if (isGranted) {
-                getLastKnownLocation() // Ambil lokasi setelah izin diberikan
-            } else {
-                Toast.makeText(this, "Izin lokasi tidak diberikan", Toast.LENGTH_SHORT).show()
-            }
-        }
-
-        requestPermissionLauncher.launch(Manifest.permission.ACCESS_FINE_LOCATION)
-    }
-
-    private fun getLastKnownLocation() {
-        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
-            fusedLocationClient.lastLocation.addOnCompleteListener { task ->
-                try {
-                    if (task.isSuccessful) {
-                        val location: Location? = task.result
-                        if (location != null) {
-                            latitude = location.latitude
-                            longitude = location.longitude
-                            // Panggil fetchShippingCost setelah mendapatkan lokasi
-                            fetchShippingCost(latitude, longitude)
+                                val totalPembayaran = calculateTotalPembayaran() + shippingCost
+                                totalPembayaranTextView.text = currencyFormatter.format(totalPembayaran)
+                                updateTotalPembayaran()
+                            }
                         } else {
-                            Toast.makeText(this, "Lokasi tidak tersedia", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(this@ActivityKeranjang, "Gagal mengambil biaya penjemputan", Toast.LENGTH_SHORT).show()
                         }
-                    } else {
-                        Toast.makeText(this, "Gagal mendapatkan lokasi", Toast.LENGTH_SHORT).show()
                     }
-                } catch (e: SecurityException) {
-                    Toast.makeText(this, "Izin lokasi diperlukan", Toast.LENGTH_SHORT).show()
-                }
-            }
+
+                    override fun onFailure(call: Call<ShippingRespnose>, t: Throwable) {
+                        Log.e(TAG, "Error fetching shipping cost: ${t.message}")
+                        Toast.makeText(this@ActivityKeranjang, "Error fetching shipping cost: ${t.message}", Toast.LENGTH_SHORT).show()
+                    }
+                })
         }
-    }
-
-
-    private fun fetchShippingCost(latitude: Double, longitude: Double) {
-//        Toast.makeText(this@ActivityKeranjang, "Fetching Shipping Cost", Toast.LENGTH_SHORT).show()
-        RetrofitClient.apiService.getShippingCost(latitude, longitude)
-            .enqueue(object : Callback<ShippingRespnose> {
-                override fun onResponse(call: Call<ShippingRespnose>, response: Response<ShippingRespnose>) {
-                    if (response.isSuccessful) {
-                        val shippingRespnose = response.body()
-                        shippingRespnose?.let {
-                            val currencyFormatter = NumberFormat.getCurrencyInstance(Locale("id", "ID"))
-                            // Update ongkir
-                            val shippingCost = it.shipping_cost ?: 0
-                            totalOngkirTextView.text = currencyFormatter.format(shippingCost)
-
-                            // Update total pembayaran dengan menambahkan ongkir
-                            val totalPembayaran = calculateTotalPembayaran() + shippingCost
-                            totalPembayaranTextView.text = currencyFormatter.format(totalPembayaran)
-                            updateTotalPembayaran()
-                        }
-                    } else {
-                        Toast.makeText(this@ActivityKeranjang, "Gagal mengambil biaya penjemputan", Toast.LENGTH_SHORT).show()
-                    }
-                }
-
-                override fun onFailure(call: Call<ShippingRespnose>, t: Throwable) {
-                    Log.e(TAG, "Error fetching shipping cost: ${t.message}")
-                    Toast.makeText(this@ActivityKeranjang, "Error fetching shipping cost: ${t.message}", Toast.LENGTH_SHORT).show()
-                }
-            })
     }
 
 
@@ -418,7 +351,7 @@ class ActivityKeranjang : AppCompatActivity() {
                 pelangganId = pelangganId,
                 onResult = { keranjangId ->
                     fetchKeranjangDetails(keranjangId)
-                    fetchShippingCost(latitude, longitude)
+                    fetchShippingCost()
                 },
                 onError = { error ->
                     showError(error)
@@ -428,11 +361,10 @@ class ActivityKeranjang : AppCompatActivity() {
     }
 
     private fun performCheckout(keranjangId: Int) {
-        val checkoutRequest = mapOf("keranjang_id" to keranjangId)
+        val checkoutRequest : Map<String, Double> = mapOf("keranjang_id" to keranjangId.toDouble())
 
-        val requestBody = JSONObject(checkoutRequest)
 
-        RetrofitClient.apiService.createCheckout(checkoutRequest, latitude, longitude)
+        RetrofitClient.apiService.createCheckout(checkoutRequest)
             .enqueue(object : Callback<CheckoutResponse> {
                 override fun onResponse(call: Call<CheckoutResponse>, response: Response<CheckoutResponse>) {
                     if (response.isSuccessful) {
@@ -466,7 +398,7 @@ class ActivityKeranjang : AppCompatActivity() {
     private fun showError(message: String) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
     }
-    fun setupMidtrans() {
+    private fun setupMidtrans() {
         UiKitApi.Builder()
             .withMerchantClientKey("SB-Mid-client-rTMPU8glYQjPkdDQ")
             .withContext(this)

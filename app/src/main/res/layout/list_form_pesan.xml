@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -10,11 +11,14 @@
         android:gravity="center_vertical"
         android:padding="8dp">
 
-        <ImageView
+        <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/image_service"
             android:layout_width="75dp"
             android:layout_height="75dp"
-            android:src="@drawable/fastdeep" />
+            android:layout_gravity="center"
+            android:src="@drawable/reglue"
+            app:shapeAppearanceOverlay="@style/RoundedImage" />
+
 
         <LinearLayout
             android:layout_width="0dp"

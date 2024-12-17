@@ -4,23 +4,17 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginTop="5dp"
-    android:layout_marginEnd="10dp"
-    android:layout_marginStart="10dp"
-    android:layout_marginBottom="5dp"
     android:orientation="vertical">
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="#DB1D27" />
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:cardBackgroundColor="@color/white"
         app:cardCornerRadius="10dp"
-        app:cardElevation="2dp">
+        app:cardElevation="2dp"
+        android:layout_margin="10dp"
+        >
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -36,11 +30,12 @@
                 android:layout_marginTop="10dp"
                 android:orientation="horizontal">
 
-                <ImageView
+                <com.google.android.material.imageview.ShapeableImageView
                     android:id="@+id/imgKeranjang"
                     android:layout_width="70dp"
                     android:layout_height="70dp"
-                    android:src="@drawable/recolor" />
+                    android:src="@drawable/recolor"
+                    app:shapeAppearanceOverlay="@style/RoundedImage" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -101,10 +96,5 @@
                 android:src="@drawable/ic_delete" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="#DB1D27" />
 
 </LinearLayout>

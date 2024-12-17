@@ -1,5 +1,6 @@
 package com.example.pojokshoesapk
 
+import SessionManager
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -26,6 +27,11 @@ class FragmentHome : Fragment() {
     private lateinit var tvDeep: TextView
     private lateinit var tvReglue: TextView
     private lateinit var tvRecolor: TextView
+
+    private lateinit var homeName: TextView
+
+    var token: String? = null
+    private lateinit var  sessionManager : SessionManager
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -75,7 +81,30 @@ class FragmentHome : Fragment() {
             startActivity(intent)
         }
 
+         homeName= view.findViewById(R.id.homeName)
+        sessionManager = SessionManager(requireContext())
+        token = sessionManager.getToken()
+
+        displayUserData()
+
         return view
+    }
+
+    private fun displayUserData() {
+        RetrofitClient.apiService.getProfile("Bearer $token").enqueue(object : Callback<AccountResponse> {
+            override fun onResponse(call: Call<AccountResponse>, response: Response<AccountResponse>) {
+                if (response.isSuccessful) {
+                    val accountResponse = response.body()
+                    accountResponse?.let {
+                        homeName.text = "Halo, ${it.pelanggan_nama}"
+                    }
+                }
+            }
+
+            override fun onFailure(call: Call<AccountResponse>, t: Throwable) {
+                // Handle error
+            }
+        })
     }
 
     private fun fetchLayananData() {

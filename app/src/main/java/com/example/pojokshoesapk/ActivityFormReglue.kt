@@ -279,7 +279,7 @@ class ActivityFormReglue : AppCompatActivity(), FormPesanAdapter.OnQuantityChang
     }
 
     private fun showError(message: String) {
-        Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
+//        Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
         Log.e(TAG, message)
     }
 

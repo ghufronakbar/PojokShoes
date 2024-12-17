@@ -34,6 +34,16 @@
             android:textSize="30sp"
             android:fontFamily="@font/cbregular"/>
 
+        <TextView
+            android:id="@+id/homeName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Halo, ..."
+            android:textColor="@color/black"
+            android:textSize="23sp"
+            android:textStyle="bold"
+            />
+
         <androidx.cardview.widget.CardView
             android:layout_width="350dp"
             android:layout_height="wrap_content"
@@ -105,15 +115,17 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:padding="10dp">
 
-                    <ImageView
+                    <com.google.android.material.imageview.ShapeableImageView
                         android:id="@+id/imgfast"
                         android:layout_width="140dp"
                         android:layout_height="140dp"
-                        android:layout_marginTop="15dp"
                         android:layout_gravity="center"
-                        android:src="@drawable/fastdeep"/>
+                        android:src="@drawable/fastdeep"
+                        app:shapeAppearanceOverlay="@style/RoundedImage" />
+
 
                     <TextView
                         android:id="@+id/tv3"
@@ -141,15 +153,17 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:padding="10dp">
 
-                    <ImageView
+                    <com.google.android.material.imageview.ShapeableImageView
                         android:id="@+id/imgdeep"
                         android:layout_width="140dp"
                         android:layout_height="140dp"
-                        android:layout_marginTop="15dp"
                         android:layout_gravity="center"
-                        android:src="@drawable/fastdeep" />
+                        android:src="@drawable/fastdeep"
+                        app:shapeAppearanceOverlay="@style/RoundedImage" />
+
                     <TextView
                         android:id="@+id/tv4"
                         android:layout_width="match_parent"
@@ -184,15 +198,16 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:padding="10dp">
 
-                <ImageView
-                    android:id="@+id/imgreglue"
-                    android:layout_width="140dp"
-                    android:layout_height="140dp"
-                    android:layout_marginTop="15dp"
-                    android:layout_gravity="center"
-                    android:src="@drawable/reglue" />
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:id="@+id/imgreglue"
+                        android:layout_width="140dp"
+                        android:layout_height="140dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/reglue"
+                        app:shapeAppearanceOverlay="@style/RoundedImage" />
 
                 <TextView
                     android:id="@+id/tv5"
@@ -219,15 +234,17 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:padding="10dp">
 
-                <ImageView
-                    android:id="@+id/imgrecolor"
-                    android:layout_width="140dp"
-                    android:layout_gravity="center"
-                    android:layout_height="140dp"
-                    android:layout_marginTop="15dp"
-                    android:src="@drawable/recolor"/>
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:id="@+id/imgrecolor"
+                        android:layout_width="140dp"
+                        android:layout_height="140dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/recolor"
+                        app:shapeAppearanceOverlay="@style/RoundedImage" />
+
 
                     <TextView
                         android:id="@+id/tv6"

@@ -91,7 +91,7 @@
                     <com.google.android.material.imageview.ShapeableImageView
                         android:layout_width="60dp"
                         android:layout_height="60dp"
-                        android:src="@drawable/profile_icon"
+                        android:src="@drawable/profile"
                         app:shapeAppearanceOverlay="@style/RoundedImage"
                         />
                     <LinearLayout
@@ -198,21 +198,21 @@
                         android:paddingLeft="12dp"
                         android:gravity="center_vertical"
                         >
-
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Logout"
-                            android:textColor="@color/red"
+                            android:textStyle="bold"
                             android:textSize="18sp"
-                            android:textStyle="bold" />
+                            android:textColor="@color/red_disabled"
+                            />
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Keluar dari akunmu"
                             android:textStyle="bold"
                             android:textSize="12sp"
-                            android:textColor="@color/red_disabled"
+                            android:textColor="@color/grey"
                             />
                     </LinearLayout>
                     <ImageView
